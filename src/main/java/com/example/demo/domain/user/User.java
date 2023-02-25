@@ -1,6 +1,7 @@
 package com.example.demo.domain.user;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 public class User {
