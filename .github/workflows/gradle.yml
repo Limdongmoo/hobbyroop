@@ -32,7 +32,7 @@ jobs:
       run: ./gradlew bootJar
 
     - name: Test with Gradle
-      run: ./gradlew test --stacktrace
+      run: ./gradlew test --debug
     - name: Copy Secret
       env:
         OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
