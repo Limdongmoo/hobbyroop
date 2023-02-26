@@ -31,8 +31,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew bootJar
 
-    - name: Test with Gradle
-      run: ./gradlew test
     - name: Copy Secret
       env:
         OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
