@@ -32,19 +32,10 @@ jobs:
       run: ./gradlew bootJar
 
     - name: Test with Gradle
-      run: ./gradlew test --debug
+      run: ./gradlew test
     - name: Copy Secret
       env:
         OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
-        OCCUPY_SECRET_TEST_DIR: src/test/resources
+        OCCUPY_SECRET_DIR: src/main/resources
         OCCUPY_SECRET_DIR_FILE_NAME: application-secret.yml
-      run: echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_DIR/$OCCUPY_SECRET_DIR_FILE_NAME &&
-            echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_TEST_DIR/$OCCUPY_SECRET_DIR_FILE_NAME
-
-    - name: Copy Test Secret
-      env:
-        OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
-        OCCUPY_SECRET_TEST_DIR: src/test/resources
-        OCCUPY_SECRET_DIR_FILE_NAME: application-secret.yml
-      run: echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_DIR/$OCCUPY_SECRET_DIR_FILE_NAME &&
-        echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_TEST_DIR/$OCCUPY_SECRET_DIR_FILE_NAME
+      run: echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_DIR/$OCCUPY_SECRET_DIR_FILE_NAME
